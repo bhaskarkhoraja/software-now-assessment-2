@@ -76,7 +76,7 @@ def find_largest_temp_range_station():
     ].reset_index()
 
     # Save the results to a text file
-    output_file = os.path.join(script_dir, "largest_temp_range_station.txt)
+    output_file = os.path.join(script_dir, "largest_temp_range_station.txt")
     with open(output_file, "w") as f:
         print(
             f"The station(s) with the largest temperature range ({max_range:.1f}°C) are:"
