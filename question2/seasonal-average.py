@@ -63,7 +63,7 @@ def analyze_temperature_data():
         seasonal_averages[season] = round(seasonal_temps, 1)
 
     # Save the seasonal averages to a text file
-    output_file = "average_temp.txt"
+    output_file = os.path.join(script_dir, "average_temp.txt)
     with open(output_file, "w") as f:
         for season, avg_temp in seasonal_averages.items():
             line = f"{season}: {avg_temp}°C\n"
