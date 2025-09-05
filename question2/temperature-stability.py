@@ -7,7 +7,8 @@ def analyze_temperature_stability():
     based on the standard deviation of their temperature readings.
     """
     all_data = pd.DataFrame()
-    data_folder = "temperatures"
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    data_folder = os.path.join(script_dir, "temperatures")
 
     if not os.path.exists(data_folder):
         print(f"Error: The '{data_folder}' folder was not found.")
