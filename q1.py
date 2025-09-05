@@ -171,9 +171,9 @@ def main():
     print("=" * 45)
     
     # File paths
-    raw_file = "raw_text.txt"
-    encrypted_file = "encrypted_text.txt"
-    decrypted_file = "decrypted_text.txt"
+    raw_file = os.path.join(script_dir, "raw_text.txt)
+    encrypted_file = os.path.join(script_dir, "encrypted_text.txt)
+    decrypted_file = os.path.join(script_dir, "decrypted_text.txt)
 
     # Check and create raw_text.txt if it doesn't exist
     create_raw_text_file_if_missing(raw_file)
