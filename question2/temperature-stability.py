@@ -71,7 +71,7 @@ def analyze_temperature_stability():
     ].reset_index()
 
     # Save the results to a text file
-    output_file = "temperature_stability_stations.txt"
+    output_file = os.path.join(script_dir, "temperature_stability_stations.txt")
     with open(output_file, "w") as f:
         f.write("Most Stable:\n")
         print("Most Stable:")
