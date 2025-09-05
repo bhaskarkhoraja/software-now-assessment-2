@@ -1,7 +1,10 @@
-Bhaskar Khoraja => bhaskarkhoraja
-Shishir Wagle =>  waglay
-Sandesh Thapa Magar => Tsandesh 
-Vamsha Palja Tamu => habray-99
+# Project Contributors
 
-Shishar is a contributor but his name has not appeared in Contributors. he has commited in 73fd3bd and cbb15cb.
-for other memebers commits could be seen in in commit history
+This project is built and maintained by the following contributors:
+
+- [bhaskarkhoraja](https://github.com/bhaskarkhoraja) (Bhaskar Khoraja)
+- [waglay](https://github.com/waglay) (Shishir Wagle)
+- [Tsandesh](https://github.com/Tsandesh) (Sandesh Thapa Magar)
+- [habray-99](https://github.com/habray-99) (Vamsha Palja Tamu)
+
+> ℹ️ Note: Some contributors may not appear in GitHub’s default Contributors graph even though they have committed (e.g., [waglay](https://github.com/waglay) in commits `73fd3bd` and `cbb15cb`). This manual list ensures everyone is properly credited.
