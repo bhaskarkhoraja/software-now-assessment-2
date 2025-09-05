@@ -39,24 +39,42 @@ def encrypt_char(c, shift1, shift2):
 
 def decrypt_char(c, shift1, shift2):
     """
-    Decrypt a single character by reversing the encryption rules.
+    Proper inverse of encrypt_char.
+    Reverses the rules without re-checking halves of the ciphertext.
     """
     if c.islower():
-        if c in LOWER_FIRST_HALF:
-            shift = shift1 * shift2
-            return chr((ord(c) - ord('a') - shift) % 26 + ord('a'))
-        elif c in LOWER_SECOND_HALF:
-            shift = shift1 + shift2
-            return chr((ord(c) - ord('a') + shift) % 26 + ord('a'))
+        shift_forward = shift1 * shift2     # used when plaintext was a-m
+        shift_backward = shift1 + shift2    # used when plaintext was n-z
+
+        # Undo possibility 1: plaintext was in a-m (shift forward originally)
+        candidate1 = chr((ord(c) - ord('a') - shift_forward) % 26 + ord('a'))
+        if candidate1 in LOWER_FIRST_HALF:
+            return candidate1
+
+        # Undo possibility 2: plaintext was in n-z (shift backward originally)
+        candidate2 = chr((ord(c) - ord('a') + shift_backward) % 26 + ord('a'))
+        if candidate2 in LOWER_SECOND_HALF:
+            return candidate2
+
+        return c  # fallback (non-alphabetic)
+
     elif c.isupper():
-        if c in UPPER_FIRST_HALF:
-            shift = shift1
-            return chr((ord(c) - ord('A') + shift) % 26 + ord('A'))
-        elif c in UPPER_SECOND_HALF:
-            shift = shift2 ** 2
-            return chr((ord(c) - ord('A') - shift) % 26 + ord('A'))
-    
-    # Return unchanged for non-alphabetic characters
+        shift_back = shift1                 # used when plaintext was A-M
+        shift_forward_sq = shift2 ** 2      # used when plaintext was N-Z
+
+        # Undo possibility 1: plaintext was in A-M (shift backward originally)
+        candidate1 = chr((ord(c) - ord('A') + shift_back) % 26 + ord('A'))
+        if candidate1 in UPPER_FIRST_HALF:
+            return candidate1
+
+        # Undo possibility 2: plaintext was in N-Z (shift forward originally)
+        candidate2 = chr((ord(c) - ord('A') - shift_forward_sq) % 26 + ord('A'))
+        if candidate2 in UPPER_SECOND_HALF:
+            return candidate2
+
+        return c  # fallback (non-alphabetic)
+
+    # Non-alphabetic characters remain unchanged
     return c
 
 
